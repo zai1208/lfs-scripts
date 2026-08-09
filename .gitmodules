@@ -1,0 +1,3 @@
+[submodule "slimcc"]
+	path = slimcc
+	url = htpps://github.com/fuhsnn/slimcc
