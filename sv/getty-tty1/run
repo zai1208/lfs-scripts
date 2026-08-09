@@ -1,0 +1,3 @@
+#!/bin/dash
+# Keep an interactive login terminal alive on your local screen!
+exec /bin/getty 38400 tty1 linux

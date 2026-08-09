@@ -1,0 +1,20 @@
+#!/bin/sh
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+# 1. Stop all services managed by runit properly
+# The 'sv' command is your friend here
+sv -w10 force-stop /var/service/*
+sv exit /var/service/*
+
+# 2. Cleanup remaining processes
+killall5 -15
+sleep 1
+killall5 -9
+
+# 3. Unmount
+umount -a -r
+mount -o remount,ro /
+
+# 4. Exit
+# runit will look at the files you touched with runit-init
+# and handle the final syscall automatically.

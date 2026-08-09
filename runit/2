@@ -1,0 +1,4 @@
+#!/bin/sh
+# /etc/runit/2 - Run services
+modprobe ath11k_pci
+exec runsvdir -P /var/service
